@@ -81,8 +81,10 @@ class SelfSupervisionTrainer(object):
         # to it. It will have information about phases (train, test) both. It will
         # also contain all the other information like optimizers, etc
         self.task = build_task(self.cfg)
+        logging.info(f'Checkpoint path: {checkpoint_path}')
+        logging.info(f'Checkpoint folder: {checkpoint_folder}')
         self.task.set_checkpoint_path(checkpoint_path)
-        self.task.set_checkpoint_folder(checkpoint_folder)
+        # self.task.set_checkpoint_folder(checkpoint_folder)
         if hooks is None:
             hooks = []
         self.task.set_hooks(hooks)
